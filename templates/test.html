@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MBTI 测试进行中</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="test-container">
+        <!-- 进度条 -->
+        <div class="progress-bar-container">
+            <div class="progress-bar" id="progressBar"></div>
+            <div class="progress-text" id="progressText">0 / 48</div>
+        </div>
+        
+        <!-- 问题卡片 -->
+        <div class="question-container" id="questionContainer">
+            {% for question in questions %}
+            <div class="question-card" data-question-id="{{ question.id }}" style="display: none;">
+                <div class="question-number">问题 {{ question.id }} / 48</div>
+                <h2 class="question-text">{{ question.text }}</h2>
+                
+                <div class="options">
+                    <label class="option-label">
+                        <input type="radio" name="q{{ question.id }}" value="1" class="option-input">
+                        <span class="option-text">非常不同意</span>
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="q{{ question.id }}" value="2" class="option-input">
+                        <span class="option-text">不同意</span>
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="q{{ question.id }}" value="3" class="option-input">
+                        <span class="option-text">中立</span>
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="q{{ question.id }}" value="4" class="option-input">
+                        <span class="option-text">同意</span>
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="q{{ question.id }}" value="5" class="option-input">
+                        <span class="option-text">非常同意</span>
+                    </label>
+                </div>
+                
+                <div class="button-group">
+                    <button class="nav-button prev-button" onclick="prevQuestion()" style="display: none;">上一题</button>
+                    <button class="nav-button next-button" onclick="nextQuestion()" disabled>下一题</button>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        
+        <!-- 结果页面 -->
+        <div class="result-container" id="resultContainer" style="display: none;">
+            <div class="result-card">
+                <div class="result-header">
+                    <h1 class="result-type" id="resultType">INTJ</h1>
+                    <h2 class="result-name" id="resultName">建筑师</h2>
+                    <p class="result-title" id="resultTitle">富有想象力的战略家</p>
+                </div>
+                
+                <div class="result-traits" id="resultTraits"></div>
+                
+                <div class="result-description" id="resultDescription"></div>
+                
+                <div class="result-percentages">
+                    <h3>各维度倾向</h3>
+                    <div class="percentage-bar">
+                        <div class="percentage-label">
+                            <span id="labelE">外向</span>
+                            <span id="labelI">内向</span>
+                        </div>
+                        <div class="percentage-container">
+                            <div class="percentage-fill left" id="barE" style="width: 0%"></div>
+                            <div class="percentage-center">VS</div>
+                            <div class="percentage-fill right" id="barI" style="width: 0%"></div>
+                        </div>
+                        <div class="percentage-values">
+                            <span id="percentE">0%</span>
+                            <span id="percentI">0%</span>
+                        </div>
+                    </div>
+                    
+                    <div class="percentage-bar">
+                        <div class="percentage-label">
+                            <span id="labelS">感觉</span>
+                            <span id="labelN">直觉</span>
+                        </div>
+                        <div class="percentage-container">
+                            <div class="percentage-fill left" id="barS" style="width: 0%"></div>
+                            <div class="percentage-center">VS</div>
+                            <div class="percentage-fill right" id="barN" style="width: 0%"></div>
+                        </div>
+                        <div class="percentage-values">
+                            <span id="percentS">0%</span>
+                            <span id="percentN">0%</span>
+                        </div>
+                    </div>
+                    
+                    <div class="percentage-bar">
+                        <div class="percentage-label">
+                            <span id="labelT">思考</span>
+                            <span id="labelF">情感</span>
+                        </div>
+                        <div class="percentage-container">
+                            <div class="percentage-fill left" id="barT" style="width: 0%"></div>
+                            <div class="percentage-center">VS</div>
+                            <div class="percentage-fill right" id="barF" style="width: 0%"></div>
+                        </div>
+                        <div class="percentage-values">
+                            <span id="percentT">0%</span>
+                            <span id="percentF">0%</span>
+                        </div>
+                    </div>
+                    
+                    <div class="percentage-bar">
+                        <div class="percentage-label">
+                            <span id="labelJ">判断</span>
+                            <span id="labelP">感知</span>
+                        </div>
+                        <div class="percentage-container">
+                            <div class="percentage-fill left" id="barJ" style="width: 0%"></div>
+                            <div class="percentage-center">VS</div>
+                            <div class="percentage-fill right" id="barP" style="width: 0%"></div>
+                        </div>
+                        <div class="percentage-values">
+                            <span id="percentJ">0%</span>
+                            <span id="percentP">0%</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="start-button" onclick="location.href='/'">重新测试</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="{{ url_for('static', filename='js/test.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MBTI 人格测试</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="hero-section">
+            <h1 class="main-title">MBTI 人格测试</h1>
+            <p class="subtitle">发现真实的自己</p>
+            
+            <div class="intro-card">
+                <h2>什么是MBTI？</h2>
+                <p>MBTI（迈尔斯-布里格斯类型指标）是一种性格分类工具，将人格分为16种类型。</p>
+                <p>通过评估四个维度的偏好，帮助你更好地了解自己的性格特点。</p>
+                
+                <div class="dimensions">
+                    <div class="dimension-item">
+                        <div class="dimension-icon">🌟</div>
+                        <h3>外向 vs 内向</h3>
+                        <p>精力来源和社交偏好</p>
+                    </div>
+                    <div class="dimension-item">
+                        <div class="dimension-icon">👁️</div>
+                        <h3>感觉 vs 直觉</h3>
+                        <p>信息接收和处理方式</p>
+                    </div>
+                    <div class="dimension-item">
+                        <div class="dimension-icon">💭</div>
+                        <h3>思考 vs 情感</h3>
+                        <p>决策制定的依据</p>
+                    </div>
+                    <div class="dimension-item">
+                        <div class="dimension-icon">📋</div>
+                        <h3>判断 vs 感知</h3>
+                        <p>生活方式和工作态度</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="test-info">
+                <div class="info-item">
+                    <span class="info-number">48</span>
+                    <span class="info-label">道题目</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-number">5-8</span>
+                    <span class="info-label">分钟</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-number">16</span>
+                    <span class="info-label">种人格</span>
+                </div>
+            </div>
+            
+            <a href="/test" class="start-button">开始测试</a>
+            
+            <p class="disclaimer">请诚实作答，选择最符合你真实情况的选项。<br>本测试仅供参考和娱乐。</p>
+        </div>
+    </div>
+</body>
+</html>
