@@ -338,4 +338,8 @@ def calculate():
     return jsonify(result)
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', debug=True, port=5000)
+    import os
+    # 从环境变量读取端口，适配 Zeabur/Heroku 等平台
+    port = int(os.environ.get('PORT', 5000))
+    # 生产环境关闭调试模式
+    app.run(host='0.0.0.0', debug=False, port=port)
