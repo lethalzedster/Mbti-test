@@ -361,10 +361,56 @@ body {
     background: #f8f9ff;
     padding: 25px;
     border-radius: 15px;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     font-size: 1.1rem;
     line-height: 1.8;
     color: #555;
+}
+
+.result-sections {
+    margin-bottom: 40px;
+}
+
+.result-section {
+    background: white;
+    border-left: 4px solid #667eea;
+    padding: 20px 25px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.result-section h3 {
+    color: #667eea;
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+.result-section ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.result-section li {
+    padding: 8px 0;
+    padding-left: 25px;
+    position: relative;
+    color: #555;
+    line-height: 1.6;
+}
+
+.result-section li:before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    color: #667eea;
+    font-weight: bold;
+}
+
+.result-section p {
+    color: #555;
+    line-height: 1.8;
+    margin: 0;
 }
 
 .result-percentages {

@@ -1,5 +1,5 @@
 let currentQuestion = 1;
-const totalQuestions = 48;
+const totalQuestions = 60;
 let answers = {};
 
 // 显示第一个问题
@@ -141,6 +141,34 @@ function displayResult(result) {
     
     // 显示描述
     document.getElementById('resultDescription').textContent = result.description.description;
+    
+    // 显示优势
+    const strengthsList = document.getElementById('strengthsList');
+    strengthsList.innerHTML = '';
+    result.description.strengths.forEach(strength => {
+        const li = document.createElement('li');
+        li.textContent = strength;
+        strengthsList.appendChild(li);
+    });
+    
+    // 显示劣势/成长空间
+    const weaknessesList = document.getElementById('weaknessesList');
+    weaknessesList.innerHTML = '';
+    result.description.weaknesses.forEach(weakness => {
+        const li = document.createElement('li');
+        li.textContent = weakness;
+        weaknessesList.appendChild(li);
+    });
+    
+    // 显示适合职业
+    const careersList = document.getElementById('careersList');
+    careersList.textContent = result.description.careers.join('、');
+    
+    // 显示人际关系说明
+    document.getElementById('relationshipsText').textContent = result.description.relationships;
+    
+    // 显示成长建议
+    document.getElementById('growthText').textContent = result.description.growth;
     
     // 更新百分比条
     setTimeout(() => {
